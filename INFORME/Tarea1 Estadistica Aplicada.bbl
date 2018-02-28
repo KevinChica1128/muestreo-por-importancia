@@ -1,0 +1,44 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{De~Castro}{2003}{Castro-03}
+De~Castro, R.  \harvardyearleft 2003\harvardyearright , {\em {El Universo
+  \LaTeX}}, segunda edn, Unibiblos, Universidad Nacional de Colombia, Bogot�.
+
+\harvarditem{Economics \harvardand\ Administration}{1993}{Census}
+Economics \harvardand\ Administration, S.  \harvardyearleft
+  1993\harvardyearright , 1990 census of housing detailed housing
+  characteristics united states, Technical report.
+
+\harvarditem{Kahle \harvardand\ Wickham}{2013}{G}
+Kahle, D. \harvardand\ Wickham, H.  \harvardyearleft 2013\harvardyearright ,
+  `ggmap: Spatial visualization with ggplot2', {\em The R Journal} {\bf
+  5}(1),~144--161.
+\newline\harvardurl{http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf}
+
+\harvarditem{{R Core Team}}{2017}{R}
+{R Core Team}  \harvardyearleft 2017\harvardyearright , {\em R: A Language and
+  Environment for Statistical Computing}, R Foundation for Statistical
+  Computing, Vienna, Austria.
+\newline\harvardurl{https://www.R-project.org/}
+
+\harvarditem{Venables \harvardand\ Ripley}{2002}{Ma}
+Venables, W.~N. \harvardand\ Ripley, B.~D.  \harvardyearleft
+  2002\harvardyearright , {\em Modern Applied Statistics with S}, fourth edn,
+  Springer, New York.
+\newblock ISBN 0-387-95457-0.
+\newline\harvardurl{http://www.stats.ox.ac.uk/pub/MASS4}
+
+\harvarditem[Wickham et~al.]{Wickham, Hester \harvardand\
+  Francois}{2017}{readr}
+Wickham, H., Hester, J. \harvardand\ Francois, R.  \harvardyearleft
+  2017\harvardyearright , {\em readr: Read Rectangular Text Data}.
+\newblock R package version 1.1.1.
+\newline\harvardurl{https://CRAN.R-project.org/package=readr}
+
+\harvarditem{Williams \harvardand\ Schnier}{2008}{H}
+Williams, P. \harvardand\ Schnier, T.  \harvardyearleft 2008\harvardyearright ,
+  `The harvard family of bibliography styles', {\em The LATEX Project Public
+  Li­cense} .
+\newline\harvardurl{https://ctan.org/pkg/harvard}
+
+\end{thebibliography}
