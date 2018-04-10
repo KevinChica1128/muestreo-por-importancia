@@ -1,0 +1,76 @@
+\documentclass[12pt]{beamer}
+\usetheme{CambridgeUS}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{Kevin Garcia - Alejandro Vargas - Alejandro Soto}
+\title{Muestreo por importancia}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
+\begin{frame}
+\frametitle{Contenido}
+\begin{itemize}
+\item
+\item
+\item
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+~\\La simulación rápida con muestreo por importancia (importance sampling)IS es esencialmente un procedimiento forzoso de Monte Carlo diseñado para acelerar la ocurrencia de eventos raros. El desarrollo de este método de simulación de análisis de fenómenos científicos generalmente se atribuye al matemático von Neumann y otros. Desde su inicio, la simulación MC ha encontrado una amplia gama de empleo, desde la termodinámica estadística en sistemas desordenados hasta el análisis y diseño de estructuras de ingeniería caracterizado por alta complejidad. De hecho, cada vez que un problema de ingeniería es analíticamente intratable (que a menudo es el caso) y una solución mediante técnicas numéricas prohibitivamente costosa computacionalmente, un último recurso para determinar las características de entrada-salida de, o estados dentro de, un sistema es llevar a cabo una simulación.
+\end{frame}
+
+\begin{frame}
+~\\Este no es un método para generar muestras. Este es un método para calcular la esperanza de $h(\theta)$. Asumamos que nuestra densidad unidimensional objetivo es $p(\theta)$, y de la cual tenemos su kernel, digamos $p^*(\theta)$ tal que
+$$p(\theta)=\frac{p^*(\theta)}{Z}$$
+~\\Donde Z es una constante de normalización.
+~\\Supongamos que muestrear directamente de $p(\theta)$ es muy complicado. Ahora asumamos que existe una distribución $q(\theta)$ de la cual sabemos es fácil muestrear y que tiene el mismo soporte que p. La densidad q es llamada la densidad muestreadora.
+\end{frame}
+
+\begin{frame}
+~\\En el muestreo por importancia procedemos de la siguiente manera:
+\begin{itemize}
+\item[1]Generamos R muestras $\theta^{(1)}$,$\theta^{(2)}$,...,$\theta^{(R)}$ de $q(\theta)$
+\item[2]Calculamos los pesos
+$$w_{r}=\frac{p^*(\theta^{(r)})}{q(\theta^{(r)})}$$
+\item[3]Utilizamos los pesos anteriores para ajustar la “importancia” de cada punto en nuestro estimador así:
+$$\hat{\Phi}=\sum\limits_{r=1}^{R}\frac{w_{r}}{\sum\limits_{j=1}^{R}}h(\theta^{(r)}) $$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+~\\El muestreo por importancia es un método relacionado con el muestreo de rechazo, que se utiliza para calcular las esperanzas utilizando una muestra aleatoria extraida de una aproximación a la distribución objetivo. 
+~\\Supogamos que estamos interesados en $E(h(\theta)\mid y)$, pero no podemos generar extracciones o muestras aleatorias de $\theta$ a partir de $p(\theta\mid y)$ y, por lo tanto, no podemos evaluar la integral mediante un promedio simple de valores simulados.
+~\\Si $g(\theta)$ es una densidad de probabilidad a partir de la cual podemos generar muestras aleatorias, entonces podemos escribir.
+$$E(h(\theta\mid y))=\frac{\int h(\theta)q(\theta\mid y) d\theta}{\int q(\theta\mid y)d\theta}=\frac{\int\left[\frac{h(\theta)q(\theta\mid y)}{g(\theta)}\right]g(\theta)d\theta}{\int\left[\frac{q(\theta\mid y)}{g(\theta)}\right]g(\theta)d\theta} $$
+\end{frame}
+\begin{frame}
+~\\Que puede ser estimado usando S muestras $\theta^1$,...,$\theta^S$ de $g(\theta)$ por la expresión,
+$$\frac{\frac{1}{S}\sum\limits_{s=1}^{S}h(\theta^s)w(\theta^s)}{\frac{1}{S}\sum\limits_{s=1}^{S}w(\theta^s)} $$    
+~\\ donde el factor,
+$$w(\theta^s)=\frac{q(\theta^s\mid y)}{g(\theta^s)} $$
+~\\ Se llaman razones de importancia o ponderaciones de importancia. Recuerde que q es nuestra notación general para densidades no normalizadas;es decir, $q(\theta\mid y)$ es igual a $p(\theta\mid y)$ por algún factor que no depende en $\theta$.
+\end{frame}
+
+\begin{frame}
+~\\ En general, es aconsejable utilizar el mismo conjunto de muestras aleatoria tanto para el numerador como para el denominador de  para reducir el error de muestreo en la estimación.
+\end{frame}
+
+
+\end{document}
