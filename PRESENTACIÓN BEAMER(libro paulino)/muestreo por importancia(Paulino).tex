@@ -57,9 +57,12 @@ $$\hat{E}[g(\theta)|x]=\frac{1}{\sum\limits_{i=1}^{n}\omega_{1}}\sum\limits_{i=1
 
 \begin{frame}
 \frametitle{Teoría}
-$$\frac{1}{\sum\limits_{i=1}^{n}}\sum\limits_{i=1}^{n}\omega_{i}g(\theta_{i}) \rightarrow \int g(\theta)h(\theta|x)d\theta$$
+$$\frac{1}{\sum\limits_{i=1}^{n}\omega_{i}}\sum\limits_{i=1}^{n}\omega_{i}g(\theta_{i}) \rightarrow \int g(\theta)h(\theta|x)d\theta$$
 ~\\Con un error estándar de Monte Carlo estimado por:
 $$\frac{1}{\sum\limits_{j=1}^{n}\omega_{j}}\left[\sum\limits_{i=1}^{n}\left\lbrace g(\theta_{i})-\frac{1}{\sum\limits_{j=1}^{n}\omega_{j}}\sum\limits_{i=1}^{n}\omega_{i}g(\theta_{i})\right\rbrace^{2}\omega_{i}^2\right]^{1/2} $$
+\end{frame}
+
+\begin{frame}
 ~\\La razón de convergencia depende de cuán bien $p(\theta)$, la función de importancia, imita $h(\theta|x)$. "Buenas" propiedades de la función de importancia son: (i) simplicidad en la generación de números pseudo-aleatorios; (ii) tener colas más pesadas que $h(\cdot|x)$; (iii) ser una buena aproximación a $h(\cdot|x)$
 \end{frame}
 
@@ -75,7 +78,8 @@ $$\frac{1}{\sum\limits_{j=1}^{n}\omega_{j}}\left[\sum\limits_{i=1}^{n}\left\lbra
 \item[2.]Se calcula $\omega_{i}=\frac{h(\theta_{i}|y)}{p(\theta_{i})}$
 \item[3.]Se calcula $\frac{1}{\sum_{i=1}^{m}\omega_{i}}\sum_{i=1}^{m}\omega_{i}g(\theta_{i})$, con
 \item $g(\theta)=\theta$ para el cálculo aproximado del valor medio de la distribución a posteriori
-\item $g(\theta)=\theta^{2}$ para obtener una aproximación de la varianza de la distribución a posteriori.
+\item $g(\theta)=\theta^{2}$ para obtener una aproximación de $E(\theta^2)$ de la distribución a posteriori.
+~\\Entonces, $V(\theta)=E(\theta^2)-E^2(\theta)$
 \end{itemize}
 \end{frame}
 
@@ -111,11 +115,25 @@ Función de importancia $t_{n}$ &  0.008330487 & 0.0001650637 \\
 
 \begin{frame}
 \frametitle{Ejemplo 2}
-~\\ Usando una función de importancia uniforme, aproximar la constante de integración, la media y la varianza de la distribución a posteriori de $\theta$, para la funcion a posteriori $f(\theta|x)\propto \theta^9(1-\theta)^3, 0<\theta<1$. Para obtener la media y la varianza a posteriori:
+~\\ Usando una función de importancia uniforme aproximar la media y la varianza de la distribución a posteriori de $\theta$, para la funcion a posteriori $f(\theta|x)\propto \theta^9(1-\theta)^3, 0<\theta<1$. Para obtener la media y la varianza a posteriori:
 ~\\Generamos 10000 $\theta_{i}$ con distribución $p(\theta)\sim U(0,1)$
 ~\\Posteriormente se calculo $\omega_{i}=\frac{f(\theta_{i}|x,\sigma^2)}{p(\theta_{i})}$
-~\\Finalmente para estimar la esperanza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}=0.7116742$
-~\\Y, para estimar la varianza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}^2=0.5203344$
+~\\Finalmente para estimar la esperanza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}=0.7324333$
+~\\Y, para estimar la varianza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}^2=0.5489597$
+~\\Entonces, $V(\theta|x,\sigma^2)=0.01250114$
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo 2}
+Comparando los resultados, tenemos:
+\begin{tabular}{|c|c|c|}
+\hline 
+ & $E(\theta|x,\sigma^2)$ & $V(\theta|x,\sigma^2)$ \\ 
+\hline 
+Teorica & 0.7142857 & 0.01360544 \\ 
+Función de importancia Uniforme &  0.7324333 & 0.01250114 \\ 
+\hline 
+\end{tabular} 
 \end{frame}
 
 \begin{frame}
@@ -145,13 +163,25 @@ $$L''(\theta)=\frac{y_{1}}{(2+\theta)^2}-\frac{y_{2}+y_{3}+b-1}{(1-\theta)^2}+\f
 \end{frame}
 
 \begin{frame}
-~\\Se observa que en el procedimiento anterior basta conocer el núcleo de la distribucióna  posteriori, es decir, basta conocer $h(\theta|y)$ a menos de la constante de proporcionalidad. También se puede obtener una mejor aproximación a la función de densidad a posteriori, asignando masa $\omega_{i}/\sum_{j=1}^{m}\omega_{j}$ a los valores simulados $\theta_{i}$.
-
-~\\ \textbf{INSERTAR IMÁGENES DE LOS RESULTADOS}
+\frametitle{Ejemplo 3}
+\center
+\begin{tabular}{|p{2.2cm}|cc|cc|}
+\hline 
+ & N=197 &  & N=20 &  \\ 
+\hline 
+Función de importancia & $E(\theta|y)$ & $V(\theta|y)$ & $E(\theta|y)$ & $V(\theta|y)$ \\ 
+\hline 
+Beta &  0.6226815 & 0.002666534 & 0.8460755 & 0.01190065 \\ 
+\hline 
+Normal & 0.6267979 & 0.000032416 & 0.8862506 & 0.00043632 \\ 
+\hline 
+Exacta & 0.6228062 & 0.002594837 & 0.8311239 & 0.01165126 \\ 
+\hline 
+\end{tabular} 
 \end{frame}
 
+
 \begin{frame}
-~\\En las figuras anteriores se encuentran los gráficos de la distribución a posteriori exacta obtenida usando métodos de integración, así como las aproximaciones obtenidas usando método de muestreo por importancia, considerando la función de densidad Normal y la función de densida Beta, para las dos muestras en estudio. Se utilizó m=10000 y una distribución a priori uniforme. En el caso de la segunda muestra, dado que eran simulados valores de $\theta$ mayores que 1, se usó una distribución normal truncada en 1.
 ~\\Como se puede observar, en el caso de la primera muestra, el método de muestreo por importancia proporciona buenas aproximaciones, para ambas funciones de importancia consideradas.  El mismo ya no ocurre en el caso de la segunda muestra, donde la función Normal (incluso truncada) no es adecuada. Sin embargo, la función Beta proporciona una buena aproximación. 
 \end{frame}
 
@@ -173,7 +203,7 @@ V<-(1/sum(w))*(sum(w*(thetai^2)))
 
 \begin{frame}[fragile]
 \frametitle{Códigos R}
-\framesubtitle{Ejemplo 1}
+\framesubtitle{Ejemplo 2}
 \begin{verbatim}
 #Ejemplo 2:
 funcion<-function(x){(x^9)*((1-x)^3)}

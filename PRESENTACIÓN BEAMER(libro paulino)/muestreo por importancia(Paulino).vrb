@@ -1,5 +1,5 @@
 \frametitle{Códigos R}
-\framesubtitle{Ejemplo 1}
+\framesubtitle{Ejemplo 2}
 \begin{verbatim}
 #Ejemplo 2:
 funcion<-function(x){(x^9)*((1-x)^3)}
