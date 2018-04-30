@@ -11,6 +11,7 @@ V<-(1/sum(w))*(sum(w*(thetai^2))) #Varianza estimada
 
 #Ejemplo 2:
 funcion<-function(x){(x^9)*((1-x)^3)}
+integrate(funcion,0,1)
 tetai<-runif(N)
 w1<-funcion(tetai)/dunif(tetai)
 E1<-(1/sum(w1))*(sum(w1*tetai))  #Esperanza estimada
