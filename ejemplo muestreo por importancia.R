@@ -8,6 +8,11 @@ theta1<-rt(N,N)  #Tetas generados a partir de la función de importancia t de stu
 w<-dnorm(theta1,xbarra,sqrt(varianza))/dt(theta1,N) #Pesos
 E<-(1/sum(w))*(sum(w*theta1))  #Esperanza estimada
 V<-(1/sum(w))*(sum(w*(theta1^2))) #Varianza estimada
+#Gráfica comparativa:
+x11()
+plot(density(theta1),col="red",lty=2,lwd=2)
+lines(density(X),lwd=2)
+
 
 #Ejemplo 2:
 funcion<-function(x){(gamma(14)/(gamma(10)*gamma(4)))*(x^9)*((1-x)^3)*x} #E(X)
@@ -63,6 +68,9 @@ E1<-(1/sum(w1))*(sum(w1*p1)) #0.6255348
 EN2<-(1/sum(w1))*(sum(w1*(p1^2))) #0.3913354 #E(x^2)
 VN<-EN2-(E1^2) #0.000032416
 
+x11()
+plot(density(p),col="red",lty=2,lwd=2)
+lines(density(p1),lwd=2)
 #----------------------------------------------------------#
 #N=20
 y11=14
