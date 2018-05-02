@@ -84,7 +84,7 @@ VN<-EN2-(E1^2) #0.0025704
 x11()
 plot(density(p),col="chartreuse4",ylab=expression(paste("h(",theta,"|y)"))
      ,xlab = expression(theta),
-     main = "Aproximación distribuciones a posteriori",lty=5,lwd=2)
+     main = "Aproximación distribuciones a posteriori N=197",lty=5,lwd=2)
 curve(hexacta,0,1,10000,add=TRUE,lwd=3)
 lines(density(p1),lty=2,lwd=2,col="Red")
 legend("topright",legend=c("Exacta","Normal","Beta"),
@@ -105,25 +105,33 @@ Esp2teor00<-integrate(h1exacta,0,1) #0.7024182
 Varteori00<-0.7024182-(0.8311239)^2 #0.01165126
 
 #Función de importancia Beta
-p00<-rbeta(m,8.165764,0.873160)
-w00<-h1(p00)/dbeta(p00,8.165764,0.873160)
-E00<-(1/sum(w00))*(sum(w00*p00)) #0.83156
-E200<-(1/sum(w00))*(sum(w00*p00^2)) #0.7030455
-V00<-E200-(E00^2)  #0.01154752
+p00<-rbeta(m,8.165772,0.873161)
+w00<-h1(p00)/dbeta(p00,8.165772,0.873161)
+E00<-(1/sum(w00))*(sum(w00*p00)) #0.8306012
+E200<-(1/sum(w00))*(sum(w00*p00^2)) #0.7017816
+V00<-E200-(E00^2)  #0.01188336
 
-#Función de importancia normal TRUNCARLA PENDIENTE
+#Función de importancia normal: Esta normal sin truncar no funciona como f.de importancia.
 p11<-rnorm(m,0.9034,sqrt(0.008693))
 w11<-h1(p11)/dnorm(p11,0.9034,sqrt(0.008693))
 E11<-(1/sum(w11))*(sum(w11*p11))  #1.224096
 E211<-(1/sum(w11))*(sum(w11*p11^2)) #1.494372
 V11<-E211-(E11^2) #0.0003833
 
+#Función de importancia normal Truncada:
+p111<-rtruncnorm(m,a=-Inf,b=1,0.9034,sqrt(0.008693))
+w111<-h1(p111)/dtruncnorm(p111,a=-Inf,b=1,0.9034,sqrt(0.008693))
+E111<-(1/sum(w111))*(sum(w111*p111))  #0.8377618
+E2111<-(1/sum(w111))*(sum(w111*p111^2)) #0.7117673
+V111<-E2111-(E111^2) #0.009922389
+
 x11()
 plot(density(p00),col="chartreuse4",ylab=expression(paste("h(",theta,"|y)"))
      ,xlab = expression(theta),
-     main = "Aproximación distribuciones a posteriori",lty=5,lwd=2)
+     main = "Aproximación distribuciones a posteriori N=20",lty=5,lwd=2)
 curve(h1exacta,0,1,10000,add=TRUE,lwd=3)
-lines(density(p11),lty=2,lwd=2,col="Red")
-legend("topright",legend=c("Exacta","Normal","Beta"),
+lines(density(p111),lty=2,lwd=2,col="Red")
+legend("topleft",legend=c("Exacta","Normal Truncada","Beta"),
        col=c("Black","Red","chartreuse4"),lty=c(1,2,5))
 #-------------------------------------------------#
+
