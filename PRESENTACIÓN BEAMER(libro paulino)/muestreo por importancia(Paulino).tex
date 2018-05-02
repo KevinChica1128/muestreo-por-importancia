@@ -189,8 +189,15 @@ $$L''(\theta)=\frac{y_{1}}{(2+\theta)^2}-\frac{y_{2}+y_{3}+b-1}{(1-\theta)^2}+\f
 \end{frame}
 
 \begin{frame}
-~\\Una función de importancia bastante utilizada es la función de densidad Normal, ya que lo que se pretende es simular de una distribución que aproxime la distribución a posteriori. Sin embargo hay situaciones en que la aproximación por la normal no es adecuada y por lo tanto otra función de importancia debe ser considerada. Una representación gráfica de la verosimilitud puede ayudar en la selección; en este caso, dado que el parámetro para el que se pretende obtener la distribución a posteriori varia en el intervalo $[0,1]$, la función de densidad Beta también puede considerarse adecada como candidata a función de importancia.
-~\\Se procederá entonces al método de muestreo por importancia utilizando las dos funciones, Normal y Beta, para las dos muestras en estudio. Para ello es necesario simular muestras de esas distribuciones. Se designa por $p(\theta)$ la función de importancia en consideración. 
+\frametitle{Ejemplo 3}
+\begin{itemize}
+\item N=197: $$L'(\theta)=0\rightarrow \hat{\theta}=0.6268$$
+$$\hat{\sigma^2}=\left\lbrace -L''(0.6268) \right\rbrace ^{-1}=0.002649 $$
+~\\Entonces, las funciones de importancia son, $N(0.6268,0.002649)$ y $Beta(54.723205,32.58249)$
+\item N=20: $$L'(\theta)=0\rightarrow \hat{\theta}=0.9034$$
+$$\hat{\sigma^2}=\left\lbrace -L''(0.6268) \right\rbrace ^{-1}=0.008693 $$
+~\\Entonces, las funciones de importancia son, $N(0.9034,0.008693)I_{[-\infty,1]}$ y $Beta(8.165772,0.873161)$
+\end{itemize}
 \end{frame}
 
 \begin{frame}
