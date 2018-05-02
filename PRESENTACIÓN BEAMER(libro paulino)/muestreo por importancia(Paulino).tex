@@ -63,7 +63,12 @@ $$\frac{1}{\sum\limits_{j=1}^{n}\omega_{j}}\left[\sum\limits_{i=1}^{n}\left\lbra
 \end{frame}
 
 \begin{frame}
-~\\La razón de convergencia depende de cuán bien $p(\theta)$, la función de importancia, imita $h(\theta|x)$. "Buenas" propiedades de la función de importancia son: (i) simplicidad en la generación de números pseudo-aleatorios; (ii) tener colas más pesadas que $h(\cdot|x)$; (iii) ser una buena aproximación a $h(\cdot|x)$
+~\\La razón de convergencia depende de cuán bien $p(\theta)$, la función de importancia, imita $h(\theta|x)$. "Buenas" propiedades de la función de importancia son: 
+\begin{itemize}
+\item[1.]Simplicidad en la generación de números pseudo-aleatorios
+\item[2.]Tener colas más pesadas que $h(\cdot|x)$
+\item[3.]Ser una buena aproximación a $h(\cdot|x)$
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -102,6 +107,17 @@ $$\bar{x}=0.007557463, \sigma^2=\frac{1}{10000}=0.0001$$
 
 \begin{frame}
 \frametitle{Ejemplo 1}
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=12.5cm]{imagenes/ej1.png}
+        \caption{Comportamiento de la distribución Poisson variando $\lambda$}
+        \label{fig:Densidad}
+    \end{center}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo 1}
 Comparando los resultados, tenemos:
 \begin{tabular}{|c|c|c|}
 \hline 
@@ -125,41 +141,56 @@ Función de importancia $t_{n}$ &  0.008330487 & 0.0001650637 \\
 
 \begin{frame}
 \frametitle{Ejemplo 2}
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=12.5cm]{imagenes/ej2.png}
+        \caption{Comportamiento de la distribución Poisson variando $\lambda$}
+        \label{fig:Densidad}
+    \end{center}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo 2}
 Comparando los resultados, tenemos:
 \begin{tabular}{|c|c|c|}
 \hline 
  & $E(\theta|x,\sigma^2)$ & $V(\theta|x,\sigma^2)$ \\ 
 \hline 
 Teorica & 0.7142857 & 0.01360544 \\ 
-Función de importancia Uniforme &  0.7324333 & 0.01250114 \\ 
+Función de importancia Uniforme &  0.7148448 & 0.01362596 \\ 
+Función de importancia Beta & 0.7142896 & 0.01362596 \\
 \hline 
 \end{tabular} 
 \end{frame}
 
 \begin{frame}
 \frametitle{Ejemplo 3}
-~\\Veamos como hacer uso del concepto de función de importancia para obtener la distribución a posteriori y calcular el valor medio y varianza a posteriori. Supongamos que se tiene una función de densidad a posteriori de la siguiente forma:
+~\\Segun un modelo genético, los animales de una determinada especie están distribuidos en 4 categorías, de acuerdo a las probabilidades.
+$$p_{1}=\frac{2+\theta}{4}, p_{2}=\frac{1-\theta}{4}, p_{3}=\frac{1-\theta}{4}, p_{4}=\frac{\theta}{4},$$
+~\\donde $0\leq \theta \leq 1$ es un parámetro desconocido, sobre el cuál se quieren hacer inferencias. Asuma que se adopta para $\theta$ una distribución a priori $Be(a,b)$ y que para una muestra de tamaño N se observaran $y_{i}$ animales en la i-ésima categoría $(i=1,...,4, \sum_{i}y_{i}=N)$. En estas condiciones la distribución a posteriori para $\theta$ es:
 $$h(\theta|y)\propto(2+\theta)^{y_{1}}(1-\theta)^{y_{2}+y_{3}+b-1}\theta^{y_{4}+a-1},   0\leq\theta\leq1 $$
-~\\y
-$$L(\theta|y)=log h(\theta|y)\propto y_{1}log(2+\theta)+(y_{2}+y_{3}+b-1)log(1-\theta)+(y_{4}+a-1)log(\theta)$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo 3}
+~\\Para obtener los parámetros de las funciones de importancia a simular, se debe solucionar la ecuación $L'(\theta)=0$ para obtener el valor medio $\hat{\theta}$ y  para la varianza $\sigma^2=\left\lbrace -L''(\hat{\theta})\right\rbrace ^{-1}$.
+~\\De la función a posteriori tenemos:
+$$L(\theta|y)=log h(\theta|y)\propto y_{1}log(2+\theta)+(y_{2}+y_{3}+b-1)log(1-\theta)$$
+$$+(y_{4}+a-1)log(\theta)$$
 $$L'(\theta)=\frac{y_{1}}{2+\theta}-\frac{y_{2}+y_{3}+b-1}{1-\theta}+\frac{y_{4}+a-1}{\theta}$$
 $$L''(\theta)=\frac{y_{1}}{(2+\theta)^2}-\frac{y_{2}+y_{3}+b-1}{(1-\theta)^2}+\frac{y_{4}+a-1}{\theta^2}$$
 \end{frame}
 
 \begin{frame}
-~\\Una función de importancia bastante utilizada es la función de densidad Normal, ya que lo que se pretende es simular de una distribución que aproxime la distribución a posteriori. Sin embargo hay situaciones en que la aproximación por la normal no es adecuada y por lo tanto otra función de importancia debe ser considerada. Una representación gráfica de la verosimilitud puede ayudar en la selección; en este caso, dado que el parámetro para el que se pretende obtener la distribución a posteriori varia en el intervalo $[0,1]$, la función de densidad Beta también puede considerarse adecada como candidata a función de importancia.
-~\\Se procederá entonces al método de muestreo por importancia utilizando las dos funciones, Normal y Beta, para las dos muestras en estudio. Para ello es necesario simular muestras de esas distribuciones. Se designa por $p(\theta)$ la función de importancia en consideración. 
+\frametitle{Ejemplo 3}
+~\\Utilizando una distribución a priori $Be(a=1,b=1)$ y considerando dos muestras de tamaños diferentes para las cuales se obtienen los siguientes datos por categorias, N=197, y=(125,18,20,34) y N=20, y=(14,0,1,5).
+~\\Veamos como hacer uso del concepto de función de importancia para obtener la distribución a posteriori y calcular el valor medio y varianza a posteriori.
 \end{frame}
 
 \begin{frame}
-~\\Como se dijo anteriormente, sea $\hat{\theta}$ el valor de $\theta$ para el cual $L'(\theta)=0$, y $\hat{\sigma^2}=\left\lbrace -L''(\hat{\theta})\right\rbrace^{-1}$. Se consideran estos valores como aproximaciones, respectivamente, para el valor medio y la varianza de la distribución a posteriori. Estos valores serán necesarios para obtener los parámetros de las distribuciones a simular. Se procede entonces de la siguiente manera:
-\begin{itemize}
-\item[1.]Se simula $\theta_{1},\theta_{2},...,\theta_{m}\sim iid$  $p(\theta)$
-\item[2.]Se calcula $\omega_{i}=\frac{h(\theta_{i}|y)}{p(\theta_{i})}$
-\item[3.]Se calcula $\frac{1}{\sum_{i=1}^{m}}\sum_{i=1}^{m}\omega_{i}g(\theta_{i})$, con
-\item $g(\theta)=\theta$ para el cálculo aproximado del valor medio de la distribución a posteriori
-\item $g(\theta)=\theta^{2}$ para obtener una aproximación de la varianza de la distribución a posteriori.
-\end{itemize}
+~\\Una función de importancia bastante utilizada es la función de densidad Normal, ya que lo que se pretende es simular de una distribución que aproxime la distribución a posteriori. Sin embargo hay situaciones en que la aproximación por la normal no es adecuada y por lo tanto otra función de importancia debe ser considerada. Una representación gráfica de la verosimilitud puede ayudar en la selección; en este caso, dado que el parámetro para el que se pretende obtener la distribución a posteriori varia en el intervalo $[0,1]$, la función de densidad Beta también puede considerarse adecada como candidata a función de importancia.
+~\\Se procederá entonces al método de muestreo por importancia utilizando las dos funciones, Normal y Beta, para las dos muestras en estudio. Para ello es necesario simular muestras de esas distribuciones. Se designa por $p(\theta)$ la función de importancia en consideración. 
 \end{frame}
 
 \begin{frame}
