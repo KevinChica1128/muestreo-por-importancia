@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.9.23)  30 APR 2018 13:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.9.23)  1 MAY 2018 21:57
 entering extended mode
 **"./muestreo por importancia(Paulino).tex"
 ("muestreo por importancia(Paulino).tex"
@@ -1469,14 +1469,19 @@ Overfull \hbox (10.14252pt too wide) has occurred while \output is active
 
 [17
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 181--181
-[]\OT1/cmss/m/n/12 Funcion de
+] <imagenes/ej3.png, id=479, 1371.1225pt x 727.71875pt>
+File: imagenes/ej3.png Graphic file (type png)
+
+<use imagenes/ej3.png>
+Package pdftex.def Info: imagenes/ej3.png used on input line 174.
+(pdftex.def)             Requested size: 355.65944pt x 188.75824pt.
+
+Overfull \hbox (14.96384pt too wide) in paragraph at lines 174--174
+ [] 
  []
 
 
-Overfull \hbox (0.57864pt too wide) in paragraph at lines 181--181
- [] 
+Overfull \vbox (29.20558pt too high) detected at line 174
  []
 
 
@@ -1486,7 +1491,17 @@ Overfull \hbox (10.14252pt too wide) has occurred while \output is active
 
 [18
 
-]
+ <./imagenes/ej3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
+[]\OT1/cmss/m/n/12 Funcion de
+ []
+
+
+Overfull \hbox (0.57864pt too wide) in paragraph at lines 192--192
+ [] 
+ []
+
+
 Overfull \hbox (10.14252pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1494,9 +1509,6 @@ Overfull \hbox (10.14252pt too wide) has occurred while \output is active
 [19
 
 ]
-\openout4 = `"muestreo por importancia(Paulino).vrb"'.
-
- ("muestreo por importancia(Paulino).vrb")
 Overfull \hbox (10.14252pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1514,6 +1526,16 @@ Overfull \hbox (10.14252pt too wide) has occurred while \output is active
 [21
 
 ]
+\openout4 = `"muestreo por importancia(Paulino).vrb"'.
+
+ ("muestreo por importancia(Paulino).vrb")
+Overfull \hbox (10.14252pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+[22
+
+]
 \tf@nav=\write6
 \openout6 = `"muestreo por importancia(Paulino).nav"'.
 
@@ -1523,14 +1545,14 @@ Overfull \hbox (10.14252pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `"muestreo por importancia(Paulino).snm"'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 227.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 227.
  ("muestreo por importancia(Paulino).aux"
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 227.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 227.
 Package rerunfilecheck Info: File `"muestreo por importancia(Paulino)".out' has
  not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
@@ -1539,32 +1561,33 @@ Package rerunfilecheck Info: File `"muestreo por importancia(Paulino)".out' has
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 216.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 227.
  ) 
 Here is how much of TeX's memory you used:
- 17885 strings out of 493334
- 340556 string characters out of 3139234
- 418588 words of memory out of 3000000
- 20941 multiletter control sequences out of 15000+200000
- 10865 words of font info for 40 fonts, out of 3000000 for 9000
+ 17925 strings out of 493334
+ 341323 string characters out of 3139234
+ 418612 words of memory out of 3000000
+ 20974 multiletter control sequences out of 15000+200000
+ 12818 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,17n,57p,695b,581s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmss17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmssi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "muestreo por importancia(Paulino).pdf" (21 pages, 265336 byt
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmss17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi12.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on "muestreo por importancia(Paulino).pdf" (22 pages, 290341 byt
 es).
 PDF statistics:
- 637 PDF objects out of 1000 (max. 8388607)
- 43 named destinations out of 1000 (max. 500000)
- 67 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 670 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
+ 72 words of extra memory for PDF output out of 10000 (max. 10000000)
 
