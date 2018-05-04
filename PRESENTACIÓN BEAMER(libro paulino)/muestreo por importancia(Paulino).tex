@@ -62,7 +62,7 @@ $$\int g(\theta)h(\theta|x)d\theta=\frac{\int g(\theta)\omega(\theta)p(\theta)d\
 \begin{frame}
 \frametitle{Teoría}
 ~\\ Si se obtiene una muestra $\theta_{1},\theta_{2},...,\theta_{n}$ de $p(\theta)$, se puede aplicar el método de Monte Carlo, obteniéndose entonces como aproximación de $E[g(\theta)|x]$
-$$\hat{E}[g(\theta)|x]=\frac{1}{\sum\limits_{i=1}^{n}\omega_{1}}\sum\limits_{i=1}^{n}\omega_{i}g(\theta_{i})$$
+$$\hat{E}[g(\theta)|x]=\frac{1}{\sum\limits_{i=1}^{n}\omega_{i}}\sum\limits_{i=1}^{n}\omega_{i}g(\theta_{i})$$
 ~\\donde $\omega_{i}=f(x|\theta_{i})h(\theta_{i})/p(\theta_{i})$
 
 ~\\El método de muestreo por importancia atribuye asi mas peso a regiones donde $p(\theta)<h(\theta|x)$ y menos peso a regiones donde $p(\theta)>h(\theta|x)$. Geweke(1989) muestra que si el soporte de $p(\theta)$ incluye el soporte de $h(\theta|x)$, los $\theta_{i}$ son una muestra i.i.d. de $p(\theta)$, y $\int g(\theta)h(\theta|x)d\theta$ existe y es finita, entonces
