@@ -46,7 +46,7 @@ plot(density(teta22),col="chartreuse4",ylab=expression(paste("h(",theta,"|y)"))
      main = "Aproximación distribuciones a posteriori",lty=5,lwd=2)
 curve(funcion2exacta,0,1,10000,add=TRUE,lwd=3)
 lines(density(teta2),lty=2,lwd=2,col="Red")
-legend("topright",legend=c("Exacta","Uniforme","Beta"),
+legend("topleft",legend=c("Exacta","Uniforme","Beta"),
        col=c("Black","Red","chartreuse4"),lty=c(1,2,5))
 
 
