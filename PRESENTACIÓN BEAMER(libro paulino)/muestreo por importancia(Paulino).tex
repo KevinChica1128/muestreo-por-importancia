@@ -111,16 +111,16 @@ $$\frac{1}{\sum\limits_{j=1}^{n}\omega_{j}}\left[\sum\limits_{i=1}^{n}\left\lbra
 ~\\Para este ejemplo se utilizo una función de importancia $p(\theta)\sim t_{n}$
 ~\\Entonces tenemos que $\theta|x,\sigma^2\sim N(\bar{x},\frac{1}{n})$
 ~\\Para tener el $\bar{x}$ y $\sigma^2$ generamos 10000 valores de x con distribución N(0,1), los resultados fueron:
-$$\bar{x}=0.007557463, \sigma^2=\frac{1}{10000}=0.0001$$
+$$\bar{x}=0.005723869, \sigma^2=\frac{1}{10000}=0.0001$$
 \end{frame}
 
 \begin{frame}
 \frametitle{Ejemplo 1}
 ~\\Generamos 10000 $\theta_{i}$ con distribución $p(\theta)\sim t_{n}$
 ~\\Posteriormente se calculo $\omega_{i}=\frac{f(\theta_{i}|x,\sigma^2)}{p(\theta_{i})}$
-~\\Finalmente para estimar la esperanza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}=0.01375921$
-~\\Y, para estimar la varianza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}^2=0.0002915643$
-~\\Entonces, $V(\theta|x,\sigma^2)=0.0001022485$
+~\\Finalmente para estimar la esperanza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}=0.006155867$
+~\\Y, para estimar la varianza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}^2=0.0001399142$
+~\\Entonces, $V(\theta|x,\sigma^2)=0.0001020195$
 \end{frame}
 
 \begin{frame}
@@ -141,8 +141,8 @@ Comparando los resultados, tenemos:
 \hline 
  & $E(\theta|x,\sigma^2)$ & $V(\theta|x,\sigma^2)$ \\ 
 \hline 
-Teórica & 0.01364327 & 0.0001 \\ 
-Función de importancia $t_{n}$ &  0.01375921 & 0.0001022485 \\ 
+Teórica & 0.005723869 & 0.0001 \\ 
+Función de importancia $t_{n}$ &  0.006155867 & 0.0001020195 \\ 
 \hline 
 \end{tabular} 
 \end{frame}
