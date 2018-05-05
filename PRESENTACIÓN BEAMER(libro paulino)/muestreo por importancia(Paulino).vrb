@@ -1,10 +1,16 @@
 \frametitle{Códigos R}
-\framesubtitle{Ejemplo 2}
+\framesubtitle{Ejemplo 3}
 \begin{verbatim}
-#Ejemplo 2:
-funcion<-function(x){(x^9)*((1-x)^3)}
-tetai<-runif(N)
-w1<-funcion(tetai)/dunif(tetai)
-E1<-(1/sum(w1))*(sum(w1*tetai))  #Esperanza estimada
-V1<-(1/sum(w1))*(sum(w1*(tetai^2))) #Varianza estimada
+#Función de importancia Beta
+p00<-rbeta(m,8.165772,0.873161)
+w00<-h1(p00)/dbeta(p00,8.165772,0.873161)
+E00<-(1/sum(w00))*(sum(w00*p00)) #0.8306012
+E200<-(1/sum(w00))*(sum(w00*p00^2)) #0.7017816
+V00<-E200-(E00^2)  #0.01188336
+#Función de importancia normal Truncada:
+p111<-rtruncnorm(m,a=-Inf,b=1,0.9034,sqrt(0.008693))
+w111<-h1(p111)/dtruncnorm(p111,a=-Inf,b=1,0.9034,sqrt(0.008693))
+E111<-(1/sum(w111))*(sum(w111*p111))  #0.8377618
+E2111<-(1/sum(w111))*(sum(w111*p111^2)) #0.7117673
+V111<-E2111-(E111^2) #0.009922389
 \end{verbatim}

@@ -27,9 +27,12 @@
 \frametitle{Contenido}
 \begin{itemize}
 \item Introducción
+\item Muestreo por importancia
 \item Teoría
 \item Algoritmo
 \item Ejemplos
+\item Bibliografía
+\item Anexos (Códigos R)
 \end{itemize}
 \end{frame}
 
@@ -65,7 +68,7 @@ $$\int g(\theta)h(\theta|x)d\theta=\frac{\int g(\theta)\omega(\theta)p(\theta)d\
 $$\hat{E}[g(\theta)|x]=\frac{1}{\sum\limits_{i=1}^{n}\omega_{i}}\sum\limits_{i=1}^{n}\omega_{i}g(\theta_{i})$$
 ~\\donde $\omega_{i}=f(x|\theta_{i})h(\theta_{i})/p(\theta_{i})$
 
-~\\El método de muestreo por importancia atribuye asi mas peso a regiones donde $p(\theta)<h(\theta|x)$ y menos peso a regiones donde $p(\theta)>h(\theta|x)$. Geweke(1989) muestra que si el soporte de $p(\theta)$ incluye el soporte de $h(\theta|x)$, los $\theta_{i}$ son una muestra i.i.d. de $p(\theta)$, y $\int g(\theta)h(\theta|x)d\theta$ existe y es finita, entonces
+~\\El método de muestreo por importancia atribuye así mas peso a regiones donde $p(\theta)<h(\theta|x)$ y menos peso a regiones donde $p(\theta)>h(\theta|x)$. Geweke(1989) muestra que si el soporte de $p(\theta)$ incluye el soporte de $h(\theta|x)$, los $\theta_{i}$ son una muestra i.i.d. de $p(\theta)$, y $\int g(\theta)h(\theta|x)d\theta$ existe y es finita, entonces
 \end{frame}
 
 \begin{frame}
@@ -76,6 +79,7 @@ $$\frac{1}{\sum\limits_{j=1}^{n}\omega_{j}}\left[\sum\limits_{i=1}^{n}\left\lbra
 \end{frame}
 
 \begin{frame}
+\frametitle{Teoría}
 ~\\La razón de convergencia depende de cuán bien $p(\theta)$, la función de importancia, imita $h(\theta|x)$. "Buenas" propiedades de la función de importancia son: 
 \begin{itemize}
 \item[1.]Simplicidad en la generación de números pseudo-aleatorios
@@ -86,7 +90,7 @@ $$\frac{1}{\sum\limits_{j=1}^{n}\omega_{j}}\left[\sum\limits_{i=1}^{n}\left\lbra
 
 \begin{frame}
 \frametitle{Teoría}
-~\\ Se debe señalar que para aplicar esta metodologia sólo hay necesidad de exigir que $h(\theta|x)$ sea conocida a menos de la constante de proporcionalidad, es decir, basta considerar $f(\theta|x)h(\theta)$.Esta observación, también aplicable a la función de importancia, es importante ya que evita la necesidad de calcular la integral necesaria para la obtención de la respectiva constante de proporcionalidad.
+~\\ Se debe señalar que para aplicar esta metodología sólo hay necesidad de exigir que $h(\theta|x)$ sea conocida a menos de la constante de proporcionalidad, es decir, basta considerar $f(\theta|x)h(\theta)$.Esta observación, también aplicable a la función de importancia, es importante ya que evita la necesidad de calcular la integral necesaria para la obtención de la respectiva constante de proporcionalidad.
 \end{frame}
 
 \begin{frame}
@@ -114,8 +118,9 @@ $$\bar{x}=0.007557463, \sigma^2=\frac{1}{10000}=0.0001$$
 \frametitle{Ejemplo 1}
 ~\\Generamos 10000 $\theta_{i}$ con distribución $p(\theta)\sim t_{n}$
 ~\\Posteriormente se calculo $\omega_{i}=\frac{f(\theta_{i}|x,\sigma^2)}{p(\theta_{i})}$
-~\\Finalmente para estimar la esperanza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}=0.008330487$
-~\\Y, para estimar la varianza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}^2=0.0001650637$
+~\\Finalmente para estimar la esperanza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}=0.01375921$
+~\\Y, para estimar la varianza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}^2=0.0002915643$
+~\\Entonces, $V(\theta|x,\sigma^2)=0.01250114$
 \end{frame}
 
 \begin{frame}
@@ -136,15 +141,15 @@ Comparando los resultados, tenemos:
 \hline 
  & $E(\theta|x,\sigma^2)$ & $V(\theta|x,\sigma^2)$ \\ 
 \hline 
-Teorica & 0.007557463 & 0.0001 \\ 
-Función de importancia $t_{n}$ &  0.008330487 & 0.0001650637 \\ 
+Teórica & 0.01364327 & 0.0001 \\ 
+Función de importancia $t_{n}$ &  0.01375921 & 0.0001022485 \\ 
 \hline 
 \end{tabular} 
 \end{frame}
 
 \begin{frame}
 \frametitle{Ejemplo 2}
-~\\ Usando una función de importancia uniforme aproximar la media y la varianza de la distribución a posteriori de $\theta$, para la funcion a posteriori $f(\theta|x)\propto \theta^9(1-\theta)^3, 0<\theta<1$. Para obtener la media y la varianza a posteriori:
+~\\ Usando una función de importancia uniforme aproximar la media y la varianza de la distribución a posteriori de $\theta$, para la función a posteriori $f(\theta|x)\propto \theta^9(1-\theta)^3, 0<\theta<1$. Para obtener la media y la varianza a posteriori:
 ~\\Generamos 10000 $\theta_{i}$ con distribución $p(\theta)\sim U(0,1)$
 ~\\Posteriormente se calculo $\omega_{i}=\frac{f(\theta_{i}|x,\sigma^2)}{p(\theta_{i})}$
 ~\\Finalmente para estimar la esperanza a posteriori, se calculo $\frac{1}{\sum\limits_{i=1}^{N}\omega_{i}}\sum\limits_{i=1}^{N}\omega_{i}\theta_{i}=0.7324333$
@@ -170,7 +175,7 @@ Comparando los resultados, tenemos:
 \hline 
  & $E(\theta|x,\sigma^2)$ & $V(\theta|x,\sigma^2)$ \\ 
 \hline 
-Teorica & 0.7142857 & 0.01360544 \\ 
+Teórica & 0.7142857 & 0.01360544 \\ 
 Función de importancia Uniforme &  0.7148448 & 0.01362596 \\ 
 Función de importancia Beta & 0.7142896 & 0.01362596 \\
 \hline 
@@ -179,7 +184,7 @@ Función de importancia Beta & 0.7142896 & 0.01362596 \\
 
 \begin{frame}
 \frametitle{Ejemplo 3}
-~\\Segun un modelo genético, los animales de una determinada especie están distribuidos en 4 categorías, de acuerdo a las probabilidades.
+~\\Según un modelo genético, los animales de una determinada especie están distribuidos en 4 categorías, de acuerdo a las probabilidades.
 $$p_{1}=\frac{2+\theta}{4}, p_{2}=\frac{1-\theta}{4}, p_{3}=\frac{1-\theta}{4}, p_{4}=\frac{\theta}{4},$$
 ~\\donde $0\leq \theta \leq 1$ es un parámetro desconocido, sobre el cuál se quieren hacer inferencias. Asuma que se adopta para $\theta$ una distribución a priori $Be(a,b)$ y que para una muestra de tamaño N se observaran $y_{i}$ animales en la i-ésima categoría $(i=1,...,4, \sum_{i}y_{i}=N)$. En estas condiciones la distribución a posteriori para $\theta$ es:
 $$h(\theta|y)\propto(2+\theta)^{y_{1}}(1-\theta)^{y_{2}+y_{3}+b-1}\theta^{y_{4}+a-1},   0\leq\theta\leq1 $$
@@ -197,7 +202,7 @@ $$L''(\theta)=\frac{y_{1}}{(2+\theta)^2}-\frac{y_{2}+y_{3}+b-1}{(1-\theta)^2}+\f
 
 \begin{frame}
 \frametitle{Ejemplo 3}
-~\\Utilizando una distribución a priori $Be(a=1,b=1)$ y considerando dos muestras de tamaños diferentes para las cuales se obtienen los siguientes datos por categorias, N=197, y=(125,18,20,34) y N=20, y=(14,0,1,5).
+~\\Utilizando una distribución a priori $Be(a=1,b=1)$ y considerando dos muestras de tamaños diferentes para las cuales se obtienen los siguientes datos por categorías, N=197, y=(125,18,20,34) y N=20, y=(14,0,1,5).
 ~\\Veamos como hacer uso del concepto de función de importancia para obtener la distribución a posteriori y calcular el valor medio y varianza a posteriori.
 \end{frame}
 
@@ -255,7 +260,19 @@ Exacta & 0.6228062 & 0.002594837 & 0.8311239 & 0.01165126 \\
 
 
 \begin{frame}
+\frametitle{Ejemplo 3}
 ~\\Como se puede observar, en el caso de la primera muestra, el método de muestreo por importancia proporciona buenas aproximaciones, para ambas funciones de importancia consideradas.  El mismo ya no ocurre en el caso de la segunda muestra, donde la función Normal (incluso truncada) no es adecuada. Sin embargo, la función Beta proporciona una buena aproximación. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Bibliografía}
+\begin{itemize}
+\item[1.]ESTATÍSTICA BAYESIANA, Paulino, Turkman y Murteira. 2003.
+\item[2.]Importance Sampling Applications in Communications and Detection, Rajan Srinivasan. 2002.
+\item[3.]Monte Carlo Methods and Importance Sampling, Eric C. Anderson. 1999.
+\item[4.]Tesis: MUESTREO POR IMPORTANCIA Y REDUCCIÓN RECURSIVA DE VARIANZA PARA LA EVALUACIÓN DE LA CONFIABILIDAD DIÁMETRO ACOTADA, Fernanda González. 2013.
+\item[5.]Importance sampling. Wikipedia.
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -264,13 +281,14 @@ Exacta & 0.6228062 & 0.002594837 & 0.8311239 & 0.01165126 \\
 \begin{verbatim}
 #Ejemplo 1:
 N=10000
-X<-rnorm(N)
-xbarra=mean(X)
-varianza=1/N
-thetai<-rt(N,N)
-w<-dnorm(thetai,xbarra,sqrt(varianza))/dt(thetai,N)
-E<-(1/sum(w))*(sum(w*thetai))
-V<-(1/sum(w))*(sum(w*(thetai^2)))
+X<-rnorm(N)   #Esto se hizo para tener la media y la varianza teorica
+xbarra=mean(X) #Media teorica
+varianza=1/N   #Varianza teorica
+theta1<-rt(N,N)  #Tetas generados a partir de la función de importancia t de student
+w<-dnorm(theta1,xbarra,sqrt(varianza))/dt(theta1,N) #Pesos
+E<-(1/sum(w))*(sum(w*theta1))  #Esperanza estimada  0.01375921
+E2<-(1/sum(w))*(sum(w*(theta1^2))) #Esperanza^2 estimada 0.0002915643
+V<-E2-(E^2) #Varianza 0.0001022485
 \end{verbatim}
 \end{frame}
 
@@ -278,12 +296,109 @@ V<-(1/sum(w))*(sum(w*(thetai^2)))
 \frametitle{Códigos R}
 \framesubtitle{Ejemplo 2}
 \begin{verbatim}
-#Ejemplo 2:
 funcion<-function(x){(x^9)*((1-x)^3)}
-tetai<-runif(N)
-w1<-funcion(tetai)/dunif(tetai)
-E1<-(1/sum(w1))*(sum(w1*tetai))  #Esperanza estimada
-V1<-(1/sum(w1))*(sum(w1*(tetai^2))) #Varianza estimada
+funcion2exacta<-function(x){(gamma(14)/(gamma(10)*gamma(4)))*(x^9)*((1-x)^3)*(x^2)} 
+integrate(funcion,0,1) #Constante de integración
+integrate(funcion2exacta,0,1) #Integral de la densidad completa (=1)
+Eteorica<-integrate(funcion2exacta,0,1)  #0.7142857
+E2teorica<-integrate(funcion2exacta,0,1) #0.5238095
+Vteorica<-0.5238095-(0.7142857^2) #Resultado: 0.01360544
+
+teta2<-runif(N) #Funcion de importancia U(0,1)
+w1<-funcion(teta2)/dunif(teta2,0,1)
+E1<-(1/sum(w1))*(sum(w1*teta2))  #Esperanza estimada  0.7148448
+E21<-(1/sum(w1))*(sum(w1*(teta2^2))) #0.5247885
+V1<-E21-(E1^2) #Varianza estimada 0.01378547
 \end{verbatim}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Códigos R}
+\framesubtitle{Ejemplo 2}
+\begin{verbatim}
+teta22<-rbeta(N,8.25,2.75) #Función de importancia Beta(8.25,2.75)
+w12<-funcion(teta22)/dbeta(teta22,8.25,2.75)
+E12<-(1/sum(w12))*(sum(w12*teta22))  #Esperanza estimada 0.7142896
+E212<-(1/sum(w12))*(sum(w12*(teta22^2))) #Varianza estimada 0.5238356
+V12<-E212-(E12^2) #0.01362596
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Códigos R}
+\framesubtitle{Ejemplo 3}
+\begin{verbatim}
+#N=197
+m=10000
+N=197
+y1=125,y2=18,y3=20,y4=34
+a=b=1
+h<-function(x){((2+x)^y1)*((1-x)^(y2+y3+b-1))*x^(y4+a-1)}
+hexacta<-function(x){(1/2.357695e+28)*((2+x)^y1)*((1-x)^(y2+y3+b-1))*x^(y4+a-1)}
+#exacta
+integrate(h,0,1)
+Espteor<-integrate(hexacta,0,1) #0.6228062
+Esp2teor<-integrate(hexacta,0,1) #0.3904824
+Varteori<-0.3904824-(0.6228062)^2 #0.002594837
+
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Códigos R}
+\framesubtitle{Ejemplo 3}
+\begin{verbatim}
+#Función de importancia Beta
+p<-rbeta(m,54.723205,32.58249)
+w<-h(p)/dbeta(p,54.723205,32.58249)
+E<-(1/sum(w))*(sum(w*p)) #0.6230844
+EB2<-(1/sum(w))*(sum(w*(p^2))) #0.3908071 #E(x^2)
+VB<-EB2-(E^2) #0.00257293
+#Función de importancia normal
+p1<-rnorm(m,0.6268,sqrt(0.002649))
+w1<-h(p1)/dnorm(p1,0.6268,sqrt(0.002649))
+E1<-(1/sum(w1))*(sum(w1*p1)) #0.623249
+EN2<-(1/sum(w1))*(sum(w1*(p1^2))) #0.3910104 #E(x^2)
+VN<-EN2-(E1^2) #0.0025704
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Códigos R}
+\framesubtitle{Ejemplo 3}
+\begin{verbatim}
+#N=20
+y11=14
+y22=0
+y33=1
+y44=5
+h1<-function(x){((2+x)^y11)*((1-x)^(y22+y33+b-1))*x^(y44+a-1)}
+h1exacta<-function(x){(1/41575.13)*((2+x)^y11)*((1-x)^(y22+y33+b-1))*x^(y44+a-1)}
+#exacta
+integrate(h1,0,1) #Constante de integración
+Espteor00<-integrate(h1exacta,0,1) #0.8311239 
+Esp2teor00<-integrate(h1exacta,0,1) #0.7024182
+Varteori00<-0.7024182-(0.8311239)^2 #0.01165126
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Códigos R}
+\framesubtitle{Ejemplo 3}
+\begin{verbatim}
+#Función de importancia Beta
+p00<-rbeta(m,8.165772,0.873161)
+w00<-h1(p00)/dbeta(p00,8.165772,0.873161)
+E00<-(1/sum(w00))*(sum(w00*p00)) #0.8306012
+E200<-(1/sum(w00))*(sum(w00*p00^2)) #0.7017816
+V00<-E200-(E00^2)  #0.01188336
+#Función de importancia normal Truncada:
+p111<-rtruncnorm(m,a=-Inf,b=1,0.9034,sqrt(0.008693))
+w111<-h1(p111)/dtruncnorm(p111,a=-Inf,b=1,0.9034,sqrt(0.008693))
+E111<-(1/sum(w111))*(sum(w111*p111))  #0.8377618
+E2111<-(1/sum(w111))*(sum(w111*p111^2)) #0.7117673
+V111<-E2111-(E111^2) #0.009922389
+\end{verbatim}
+\end{frame}
+
 \end{document}

@@ -6,8 +6,9 @@ xbarra=mean(X) #Media teorica
 varianza=1/N   #Varianza teorica
 theta1<-rt(N,N)  #Tetas generados a partir de la función de importancia t de student
 w<-dnorm(theta1,xbarra,sqrt(varianza))/dt(theta1,N) #Pesos
-E<-(1/sum(w))*(sum(w*theta1))  #Esperanza estimada
-V<-(1/sum(w))*(sum(w*(theta1^2))) #Varianza estimada
+E<-(1/sum(w))*(sum(w*theta1))  #Esperanza estimada  0.01375921
+E2<-(1/sum(w))*(sum(w*(theta1^2))) #Esperanza^2 estimada 0.0002915643
+V<-E2-(E^2) #Varianza 0.0001022485
 #Gráfica comparativa:
 x11()
 plot(density(theta1),col="red",lty=2,lwd=2,ylab=expression(paste("h(",theta,"|y)"))
